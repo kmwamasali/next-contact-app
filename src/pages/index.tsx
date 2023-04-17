@@ -9,7 +9,7 @@ const inter = Inter({ subsets: ['latin'] })
 const fetcher = (url: string) => fetch(url).then((res) => res.json())
 
 export default function Home() {
-  const { data, error, isLoading } = useSwr<Contact[]>('/api/usersapi/v1/contacts ')
+  const { data, error, isLoading } = useSwr<Contact[]>('/api/usersapi/v1/contacts', fetcher)
 
   if (error) return <div>Failed to load users</div>
   if (isLoading) return <div>Loading...</div>
