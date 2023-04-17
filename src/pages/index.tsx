@@ -20,18 +20,20 @@ export default function Home() {
 
       <div className="mb-32 grid text-center lg:mb-0 lg:grid-cols-4 lg:text-left">
         {data.map((contact) => (
+
           <Link
             key={contact.id}
-            href="/user/"
+            href={`/user/${contact.id}`}
+            className="group rounded-lg bg-white border m-2 px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
             target=""
             rel="noopener noreferrer"
           >
-            <h2 className={inter.className}>
-              {contact.name}
-            </h2>
-            <p className={inter.className}>
-              {contact.avatar}
-            </p>
+            <div className="flex items-center">
+              <img src={contact.avatar} alt={contact.name} className="w-10 h-10 rounded-full mr-4"/>
+              <h2 className={inter.className}>
+                {contact.name}
+              </h2>
+            </div>
           </Link>
         ))}
       </div>
